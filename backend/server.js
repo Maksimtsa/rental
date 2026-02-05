@@ -1,8 +1,10 @@
-import { Hono } from "hono";
+import { Hono } from 'hono';
+import { cors } from 'hono/cors';
+import equipment from './endpoints/equipment.js';
 
+const app = new Hono();
 
-const app  = new Hono();
-app.get('/', (c) => c.text('dziala'));
-
+app.use('*', cors());
+app.route('/equipment', equipment);
 
 export default app;
