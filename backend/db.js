@@ -52,5 +52,9 @@ CREATE TABLE IF NOT EXISTS rentals (
   FOREIGN KEY (user_id) REFERENCES users(id)
 )
 `);
-
+db.exec(`
+  INSERT INTO equipment (name, category, description) 
+  VALUES ('Laptop', 'Electronics', 'Gaming laptop'),
+         ('Mouse', 'Electronics', 'Wireless mouse');
+`);
 export default db;
